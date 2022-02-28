@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,7 +41,7 @@ public class DummyControllerTest {
 		return "삭제되었습니다 " + id;
 	}
 	
-	@Transactional //더티 체킹, 함수 종료 시 자동 commit
+	@Transactional //더티 체킹, 함수 종료 시 자동 commit, 하나의 transaction으로 묶음
 	@PutMapping("/dummy/user/{id}")
 	public User updateUser(@PathVariable int id, @RequestBody User requestUser) 
 	{		
