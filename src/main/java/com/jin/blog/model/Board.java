@@ -14,7 +14,6 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
@@ -39,7 +38,6 @@ public class Board {
 	@Lob //대용량 데이터
 	private String content;
 	
-	@ColumnDefault("0")
 	private int count;
 	
 	@ManyToOne //many board one user, one user can make many boards
