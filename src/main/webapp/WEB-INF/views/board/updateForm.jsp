@@ -2,8 +2,9 @@
 
 <%@ include file="../layout/header.jsp"%>
 <div class="container">
+	<button class="btn btn-secondary" onclick="history.back()">돌아가기</button>
 	<form>
-		<input type="hidden" id="id" value="${board.id}"/>
+		<input type="hidden" id="id" value="${board.id}" />
 		<div class="form-group">
 			<label for="title">Title:</label> <input value="${board.title}" type="text" class="form-control" id="title">
 		</div>
@@ -22,7 +23,8 @@
 		height : 300
 	});
 </script>
-<<script src="/js/board.js"></script>
+<
+<script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>
 
 

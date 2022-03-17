@@ -28,4 +28,19 @@ public class UserService {
 		user.setRole(RoleType.USER);
 		userRepository.save(user);
 	}
+	
+	@Transactional 
+	public void 회원수정(User user)
+	{
+		User persistance = userRepository.findById(user.getId())
+				.orElseThrow(()->{return new IllegalArgumentException("유저 찾기 실패");});
+		String rawPassword = user.getPassword();
+		/*if(rawPassword.equals("") || user.getEmail().equals(""))
+		{
+			throw new IllegalArgumentException("비밀번호와 메일을 입력해야 합니다");
+		}*/
+		String encodePassword = encoder.encode(rawPassword);
+		persistance.setPassword(encodePassword);
+		persistance.setEmail(user.getEmail()); //더티체킹
+	}
 }
